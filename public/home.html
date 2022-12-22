@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+    
+::-webkit-scrollbar{
+display: none;
+}
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    .cont{
+        /* border: 2px solid fuchsia; */
+        height: 100vh;
+        background-image:linear-gradient(rgba(10, 10, 10, 0.558),rgba(212, 192, 192, 0.3)), url('nature1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: changebg 15s infinite linear;
+    }
+    .navbar{
+        /* border: 2px solid red; */
+        background-color: rgba(46, 43, 43, 0.2);
+        color: beige;
+        height: 15vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar h2{
+        position: relative;
+        left: 3%;
+    }
+    a{
+        text-decoration: none;
+        color: beige;
+        font-weight: bold;
+    }
+    .navitems{
+        width: 50%;
+        /* border: 2px solid black; */
+        display: flex;
+        justify-content:space-evenly;
+        transition: all 0.3s ease;
+        position: relative;
+        right: -2%;
+    }
+    .navitem a:hover{
+        color:  #00b894;
+    }
+
+    body{
+        margin: 0;
+        font-family: Josefin Sans;
+        background: #202731;
+        font-size: 62.5%;
+        overflow-x: hidden;
+    }
+    section{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 40rem;
+        padding: 10rem 10vw;
+    }
+    .blue{
+        background: rgb(225, 223, 223);
+    }
+    .red{
+        background: #dd3f31;
+    }
+    .pink{
+        background: #ff0066;
+    }
+    .dark{
+        background: #0f0f10;
+        z-index: -1;
+    }
+    .curve{
+        position: absolute;
+        height: 22.5rem;
+        width: 100%;
+        bottom: 0;
+    }
+    .curve::before{
+    content: '';
+    display: block;
+    position:absolute;
+    border-radius: 100% 50%;
+    width: 62%;
+    height: 100%;
+    background-color: #202731;
+    transform: translate(77.5%,52%) ; 
+    }
+    .curve::after{
+    content: '';
+    display: block;
+    position:absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color:  rgb(225, 223, 223);
+    transform: translate(-4%,40%);
+    z-index: -1;
+
+    }
+    .bubble::after{
+        content: '';
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        position: absolute;
+        bottom: 0;
+        height:85%;
+        width: 100%;
+        background-color: #0f0f10;
+        z-index: 1;
+    }
+    .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(160% + 1.3px);
+    height: 122px;
+}
+
+.wave .shape-fill {
+    fill:#202731;
+}
+.card{
+position: relative;
+width: 25rem;
+height: 15rem;
+border-radius: 1rem;
+box-shadow: 0px 0.5rem 2rem rgba(0,0,0,0.5);
+transition: 0.3s;
+padding: 3rem 5rem;
+background-color: #fff;
+cursor: pointer;
+z-index: 100;
+/* border: 2px solid red; */
+
+}
+.imgbox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-7rem);
+}
+
+.imgbox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-8rem);
+    z-index: 0;
+    
+}
+img{
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 0.5rem 2rem rgba(0,0,0,0.5);
+    filter:blur(2px) sepia(20);
+}
+.content{
+    /* border:2px solid rebeccapurple; */
+color: #0f0f10;
+text-align: center;
+transform: translateY(-8rem);
+opacity: 0;
+transition: 0.3s;
+}
+.overtext{
+    transform:translate(2.5rem , -10rem) ;
+    font-size: 2rem;
+    color: rgb(91, 88, 88); 
+    text-shadow: 1px 1px 2px black;
+    transition: .5s;
+}
+.card:hover{
+    height: 25rem;
+}
+.card:hover > .content{
+    opacity: 1;
+    font-size: 1rem;
+    line-height: 25px;
+}
+.card:hover  #photo{
+    filter:blur(0px) sepia(0);
+}
+
+.card:hover  .overtext{
+    opacity: 0;
+}
+.content h2{
+    color: #00b894;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    text-shadow: 1px 1px 1px black;
+}
+.blue , .bubble{
+    width: 100%;
+    padding: 0;
+    display: flex;
+    /* border: 2px solid red; */
+    flex-direction: row;
+    justify-content: space-around;
+}
+.heading{
+    height: 10rem;
+    width: 100%;
+    z-index: -100;
+margin-bottom: -50px;
+font-size: 2rem;
+color: #00b894;
+background-image: linear-gradient(to left , rgb(29, 140, 230) , #f6f8f9);
+
+}
+.heading h2{
+transform: translate(10rem , 3rem);
+letter-spacing: 10px;
+text-shadow: 1px 1px 1px black;
+
+}
+ .bubble_heading h2{
+    /* transform: translate(0px , 2px); */
+}
+</style>
+<body>
+
+<div class="heading">
+    <h2>LUCKNOW</h2>
+</div>
+<section class="blue">
+    
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+    <div class="curve"></div>
+</section>
+
+
+<section class="">
+    <h2>LUCKNOW</h2>
+</section>
+
+<div class="bubble_heading">
+    <h2>LUCKNOW</h2>
+<section class="bubble">
+
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="imgbox">
+            <img id="photo" src="https://images.pexels.com/photos/13084084/pexels-photo-13084084.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <h3 class="overtext">LUCKNOW</h3>
+        </div>
+
+        <div class="content">
+            <h2>Keep Smiling</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore placeat eveniet explicabo eligendi perferendis assumenda libero ex nisi, facere</p>
+        </div>
+    </div>
+ 
+</section>
+
+
+<section class="dark">
+    <h1>Nice Curves</h1>
+    <p>Perferendis voluptatum nesciunt adipisci corrupti animi nihil labore a reprehenderit sunt quaerat saepe fugiat ducimus repellendus dicta ipsam totam quae, veniam nulla ut quibusdam ratione iusto! Corrupti architecto velit obcaecati.</p>
+</section>
+<section class="red">
+    <h1>Nice Curves</h1>
+    <p>Praesentium velit laudantium, fuga, facere a reiciendis repudiandae ipsa officia magni ex nulla eaque quae, neque sequi similique? Debitis incidunt quas quae consequatur magnam ducimus hic quibusdam officiis quam obcaecati.</p>
+    <div class="wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+</section>
+
+<section>
+    <h1>Nice Curves</h1>
+    <p>Alias deleniti blanditiis voluptas sunt laudantium impedit necessitatibus iure optio ex natus. Unde magni quis sint quam dignissimos alias modi molestiae doloribus totam illo fuga veritatis ut, molestias libero tempora?</p>
+</section>
+<section>
+    <h1>Nice Curves</h1>
+    <p>Eius aliquam mollitia neque, quidem corporis tempora quae ducimus reprehenderit dolore asperiores beatae provident aut perferendis tempore culpa? Pariatur impedit aperiam, inventore natus officia quasi modi. Aliquid tempora harum perspiciatis!</p>
+</section>
+<section>
+    <h1>Nice Curves</h1>
+    <p>Nisi quisquam minus quidem voluptatum laboriosam nam placeat, fuga beatae corporis culpa voluptas saepe, quam dolores et sapiente perferendis quod corrupti esse deserunt labore! Tenetur cupiditate optio dignissimos facere dolore.</p>
+</section>
+
+</body>
+</html>
